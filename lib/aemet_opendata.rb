@@ -4,10 +4,15 @@ require 'json'
 require 'faraday'
 require 'faraday-encoding'
 
+##
+# Main module
 module AemetOpendata
   extend Configuration
-  # Fetches a city from the stations
+  ##
+  # Class that handles fetching of a city data from the API
   class << self
+    ##
+    # Fetches the 'idema' number from Aemet
     def fetch_city(city_name)
       if !AemetOpendata.api_key.nil?
         conn = Faraday.new "#{AemetOpendata.api_endpoint}", ssl: { verify: false }
@@ -28,6 +33,8 @@ module AemetOpendata
 
     private
 
+    ##
+    # Parses the API response
     def parse_response(response, city_name)
       data_connection = Faraday.new(response['datos'].to_s, ssl: { verify: false }) do |connection|
         connection.response :encoding  # use Faraday::Encoding middleware
@@ -38,6 +45,8 @@ module AemetOpendata
       parse_cities(city_name, json_array)
     end
 
+    ##
+    # Parses the city name from the JSON array containing the data
     def parse_cities(city_name, json_array)
       json_array.each do |key|
         city = key.to_h
