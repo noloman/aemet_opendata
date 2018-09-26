@@ -9,6 +9,7 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :faraday
   c.allow_http_connections_when_no_cassette = false
+  c.filter_sensitive_data("<API_KEY>") { AemetOpendata.api_key }
 end
 
 RSpec.configure do |config|

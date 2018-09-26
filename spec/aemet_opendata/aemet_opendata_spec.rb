@@ -9,5 +9,18 @@ module AemetOpendata
     it 'has a version number' do
       expect(AemetOpendata::VERSION).to eq('0.0.1')
     end
+
+    describe '.weather' do
+      before :each do
+        AemetOpendata.api_key = 'this-is-my-api-key'
+      end
+
+      it 'should show a number when fetching a city', :vcr do
+        VCR.use_cassette('number_for_city_name') do
+          number = AemetOpendata.fetch_city('sevilla')
+          expect(number).to_not be_nil
+        end
+      end
+    end
   end
 end
