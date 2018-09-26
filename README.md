@@ -22,7 +22,15 @@ Or install it yourself as:
 
 ## Usage
 
-`AemetOpendata.fetch_city(city_name)` with `city_name` being the name of the city you want to fetch
+First, you need to have a valid API key for making requests. Just go to https://opendata.aemet.es/centrodedescargas/altaUsuario? and get one.
+
+Once you have a valid API key, you can enter it as in the following example:
+```
+AemetOpendata.configure do |config|
+  config.api_key = 'api-key'
+end
+```
+Then after you have entered your API key, just `AemetOpendata.fetch_city(city_name)` with `city_name` being the name of the city you want to fetch. (NOTE: as this is a gem in a very alpha stage, it will just return an 'idema' number).
 
 ## Development
 
