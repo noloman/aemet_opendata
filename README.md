@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-`AemetOpendata.fetch_city(city_name) with `city_name` being the name of the city you want to fetch
+`AemetOpendata.fetch_city(city_name)` with `city_name` being the name of the city you want to fetch
 
 ## Development
 
