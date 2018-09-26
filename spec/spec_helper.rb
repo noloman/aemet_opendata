@@ -1,5 +1,15 @@
 require 'bundler/setup'
 require 'aemet_opendata'
+require 'vcr'
+require 'typhoeus/adapters/faraday'
+
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :faraday
+  c.allow_http_connections_when_no_cassette = false
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,13 +21,7 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
-
-  require 'vcr'
-  require 'typhoeus/adapters/faraday'
-
-  VCR.configure do |c|
-    c.cassette_library_dir = 'spec/cassettes'
-    c.hook_into :typhoeus
-    c.allow_http_connections_when_no_cassette = false
+  config.before(:each) do
+    AemetOpendata.api_key = nil
   end
 end

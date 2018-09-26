@@ -27,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "json", ">= 1.5.5"
   spec.add_development_dependency "faraday", "~> 0"
   spec.add_development_dependency "faraday-encoding", "~> 0"
-  spec.add_development_dependency 'vcr', "~> 0"
+  spec.add_development_dependency 'vcr', ">= 4.0.0"
+  spec.add_development_dependency 'typhoeus', ">= 1.3.0"
 end
