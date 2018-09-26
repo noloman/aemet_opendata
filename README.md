@@ -1,10 +1,8 @@
 # AemetOpendata
 
-Información elaborada por la Agencia Estatal de Meteorología - https://www.aemet.es
+### Información elaborada por la Agencia Estatal de Meteorología - https://www.aemet.es
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aemet_opendata`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Gem that fetches meteorological information from https://opendata.aemet.es, the OpenData web portal from spanish meteorological agency, [AEMET](https://www.aemet.es)
 
 ## Installation
 
@@ -24,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`AemetOpendata.fetch_city(city_name) with `city_name` being the name of the city you want to fetch
 
 ## Development
 
@@ -34,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/aemet_opendata. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/noloman/aemet_opendata. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
