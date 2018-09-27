@@ -42,18 +42,47 @@ module AemetOpendata
       end
 
       json_array = JSON.parse(data_connection.get.body)
-      parse_cities(city_name, json_array)
+      city_idema = parse_and_fetch_city_idema(city_name, json_array)
+      unless city_idema.nil?
+        ##
+        # Now we have to fetch the conventional observation weather from the idema.
+        # It should return a hash containing JSON objects of the weather in
+        # the place defined by the idema in the following 24 hours.
+        city_weather_url = "#{AemetOpendata.api_endpoint}/opendata/api/observacion/convencional/datos/estacion/#{city_idema}?api_key=#{AemetOpendata.api_key}"
+        city_weather_hash =
+          get_city_weather_from_idema(city_weather_url)
+        puts city_weather_hash
+      end
     end
 
     ##
     # Parses the city name from the JSON array containing the data
-    def parse_cities(city_name, json_array)
+    def parse_and_fetch_city_idema(city_name, json_array)
+      res = nil
       json_array.each do |key|
         city = key.to_h
         if city['ubi'].force_encoding('UTF-8').include?(city_name.upcase)
-          return city['idema'].encode('UTF-8')
+          res = city['idema'].encode('UTF-8')
         end
       end
+      res
+    end
+
+    ##
+    # Retrieves a hash with the city weather for the next 24 hours.
+    def get_city_weather_from_idema(data_url)
+      city_connection = Faraday.new(data_url, ssl: { verify: false }) do |connection|
+        connection.response :encoding # use Faraday::Encoding middleware
+        connection.adapter Faraday.default_adapter # net/http
+      end
+
+      conn_hash = JSON.parse(city_connection.get.body)
+      datos_url = conn_hash['datos']
+      datos_connection = Faraday.new(datos_url, ssl: { verify: false }) do |connection|
+        connection.response :encoding # use Faraday::Encoding middleware
+        connection.adapter Faraday.default_adapter # net/http
+      end
+      JSON.parse(datos_connection.get.body)
     end
   end
 end
