@@ -1,5 +1,8 @@
 # AemetOpendata
 
+[![Gem Version](https://badge.fury.io/rb/aemet_opendata.svg)](https://rubygems.org/gems/aemet_opendata)
+[![Code Climate](https://codeclimate.com/github/noloman/aemet_opendata/badges/gpa.svg)](https://codeclimate.com/github/noloman/aemet_opendata)
+
 ### Información elaborada por la [Agencia Estatal de Meteorología](https://www.aemet.es)
 
 Gem that fetches meteorological information from https://opendata.aemet.es, the OpenData web portal from spanish meteorological agency, [AEMET](https://www.aemet.es)
