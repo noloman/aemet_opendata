@@ -51,7 +51,6 @@ module AemetOpendata
         city_weather_url = "#{AemetOpendata.api_endpoint}/opendata/api/observacion/convencional/datos/estacion/#{city_idema}?api_key=#{AemetOpendata.api_key}"
         city_weather_hash =
           get_city_weather_from_idema(city_weather_url)
-        puts city_weather_hash
       end
     end
 
