@@ -7,7 +7,7 @@ module AemetOpendata
     end
 
     it 'has a version number' do
-      expect(AemetOpendata::VERSION).to eq('0.0.1')
+      expect(AemetOpendata::VERSION).to eq('0.0.2')
     end
 
     describe '# idema number from a city' do
