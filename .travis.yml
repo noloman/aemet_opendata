@@ -1,5 +1,4 @@
 before_install:
-  - npm install -g npm@3.x-latest
   - npm i -g npm
 language: ruby
 rvm:
