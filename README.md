@@ -1,6 +1,7 @@
 # AemetOpendata
 
 [![Gem Version](https://badge.fury.io/rb/aemet_opendata.svg)](https://rubygems.org/gems/aemet_opendata)
+[![Build Status](https://travis-ci.org/noloman/aemet_opendata.svg?branch=master)](https://travis-ci.org/noloman/aemet_opendata)
 [![Code Climate](https://codeclimate.com/github/noloman/aemet_opendata/badges/gpa.svg)](https://codeclimate.com/github/noloman/aemet_opendata)
 
 ### Información elaborada por la [Agencia Estatal de Meteorología](https://www.aemet.es)
@@ -33,7 +34,36 @@ AemetOpendata.configure do |config|
   config.api_key = 'api-key'
 end
 ```
-Then after you have entered your API key, just `AemetOpendata.fetch_city(city_name)` where `city_name` is the name of the city you want to fetch. (**NOTE**: as this is a gem in a very alpha stage, it will just return an 'idema' number).
+Then after you have entered your API key, just `AemetOpendata.fetch_city(city_name)` where `city_name` is the name of the city you want to fetch.
+The result should be something similar to:
+```
+[ 
+{
+  "idema" : "5783",
+  "lon" : -5.879167,
+  "fint" : "2018-09-28T13:00:00",
+  "prec" : 0.0,
+  "alt" : 34.0,
+  "vmax" : 7.2,
+  "vv" : 3.3,
+  "dv" : 100.0,
+  "lat" : 37.416668,
+  "dmax" : 120.0,
+  "ubi" : "SEVILLA/SAN PABLO",
+  "pres" : 1013.6,
+  "hr" : 36.0,
+  "stdvv" : 0.9,
+  "ts" : 35.1,
+  "pres_nmar" : 1017.1,
+  "tamin" : 29.7,
+  "ta" : 31.4,
+  "tamax" : 31.6,
+  "tpr" : 14.5,
+  "stddv" : 20.0,
+  "inso" : 54.0
+},
+]
+```
 
 ## Development
 
