@@ -1,6 +1,7 @@
 before_install:
   - npm i -g npm
   - gem install bundler
+  - gem update bundler
 language: ruby
 rvm:
  - 2.6.1
