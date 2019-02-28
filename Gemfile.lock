@@ -14,7 +14,7 @@ GEM
     faraday-encoding (0.0.5)
       faraday
     ffi (1.9.25)
-    json (2.1.0)
+    json (2.2.0)
     multipart-post (2.0.0)
     rake (12.3.2)
     rspec (3.8.0)
