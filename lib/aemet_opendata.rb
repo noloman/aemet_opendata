@@ -37,7 +37,7 @@ module AemetOpendata
     # Parses the API response
     def parse_response(response, city_name)
       data_connection = Faraday.new(response['datos'].to_s, ssl: { verify: false }) do |connection|
-        connection.response :encoding  # use Faraday::Encoding middleware
+        connection.response :encoding # use Faraday::Encoding middleware
         connection.adapter Faraday.default_adapter # net/http
       end
 
@@ -49,8 +49,7 @@ module AemetOpendata
         # It should return a hash containing JSON objects of the weather in
         # the place defined by the idema in the following 24 hours.
         city_weather_url = "#{AemetOpendata.api_endpoint}/opendata/api/observacion/convencional/datos/estacion/#{city_idema}?api_key=#{AemetOpendata.api_key}"
-        city_weather_hash =
-          get_city_weather_from_idema(city_weather_url)
+        get_city_weather_from_idema(city_weather_url)
       end
     end
 
