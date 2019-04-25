@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'json', '>= 1.5.5'
   spec.add_development_dependency 'rake', '~> 12.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'ruby', '=> 2.6.0'
+  spec.add_development_dependency 'ruby', '>= 2.6.0'
   spec.add_development_dependency 'typhoeus', '>= 1.3.0'
   spec.add_development_dependency 'vcr', '>= 4.0.0'
 end
